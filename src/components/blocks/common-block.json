@@ -1,0 +1,55 @@
+{
+  "collectionName": "components_blocks_common_blocks",
+  "info": {
+    "displayName": "Common Block"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "text"
+    },
+    "link": {
+      "type": "component",
+      "component": "elements.link",
+      "repeatable": false
+    },
+    "variants": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "news",
+        "events",
+        "trainning",
+        "cooperation",
+        "alumni",
+        "slider"
+      ]
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article"
+    },
+    "events": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::event.event"
+    },
+    "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "isBackgroundHighlight": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "config": {}
+}
