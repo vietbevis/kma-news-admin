@@ -8,8 +8,9 @@ export interface BlocksCommonBlock extends Struct.ComponentSchema {
   attributes: {
     articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
     backgroundImage: Schema.Attribute.Media<'images' | 'files'>;
-    events: Schema.Attribute.Relation<'oneToMany', 'api::event.event'>;
     isBackgroundHighlight: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    isLinkFullWidth: Schema.Attribute.Boolean &
       Schema.Attribute.DefaultTo<false>;
     link: Schema.Attribute.Component<'elements.link', false>;
     summary: Schema.Attribute.Text;
@@ -18,6 +19,29 @@ export interface BlocksCommonBlock extends Struct.ComponentSchema {
       ['news', 'events', 'trainning', 'cooperation', 'alumni', 'slider']
     > &
       Schema.Attribute.Required;
+  };
+}
+
+export interface BlocksSemester extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_semesters';
+  info: {
+    displayName: 'Semester';
+  };
+  attributes: {
+    semester: Schema.Attribute.Integer & Schema.Attribute.Required;
+    subjects: Schema.Attribute.Relation<'oneToMany', 'api::subject.subject'>;
+  };
+}
+
+export interface BlocksSemesterBlock extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_semester_blocks';
+  info: {
+    displayName: 'Semester Block';
+  };
+  attributes: {
+    semesters: Schema.Attribute.Component<'blocks.semester', true> &
+      Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -103,6 +127,22 @@ export interface ElementsQuickLinks extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsSinglePage extends Struct.ComponentSchema {
+  collectionName: 'components_elements_single_pages';
+  info: {
+    displayName: 'single page';
+  };
+  attributes: {
+    content: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultHtml';
+        }
+      >;
+  };
+}
+
 export interface ElementsSocialLinks extends Struct.ComponentSchema {
   collectionName: 'components_elements_social_links';
   info: {
@@ -158,12 +198,15 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'blocks.common-block': BlocksCommonBlock;
+      'blocks.semester': BlocksSemester;
+      'blocks.semester-block': BlocksSemesterBlock;
       'elements.block-description': ElementsBlockDescription;
       'elements.contact': ElementsContact;
       'elements.copy-right': ElementsCopyRight;
       'elements.link': ElementsLink;
       'elements.logo': ElementsLogo;
       'elements.quick-links': ElementsQuickLinks;
+      'elements.single-page': ElementsSinglePage;
       'elements.social-links': ElementsSocialLinks;
       'layouts.footer': LayoutsFooter;
       'layouts.header': LayoutsHeader;

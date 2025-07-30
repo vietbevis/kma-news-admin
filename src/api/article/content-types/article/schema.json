@@ -85,18 +85,9 @@
       "relation": "oneToMany",
       "target": "api::article.article"
     },
-    "isFeature": {
-      "type": "boolean",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "default": false
-    },
     "insertToPage": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::navigation.navigation"
     }
   }

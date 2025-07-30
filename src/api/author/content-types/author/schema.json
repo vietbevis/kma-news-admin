@@ -4,7 +4,7 @@
   "info": {
     "singularName": "author",
     "pluralName": "authors",
-    "displayName": "Author"
+    "displayName": "Lecturer"
   },
   "options": {
     "draftAndPublish": true
@@ -106,6 +106,18 @@
       "options": {
         "preset": "defaultHtml"
       }
+    },
+    "order": {
+      "type": "integer",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "required": true,
+      "default": 0,
+      "unique": false,
+      "min": 0
     }
   }
 }

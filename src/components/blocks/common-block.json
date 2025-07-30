@@ -33,11 +33,6 @@
       "relation": "oneToMany",
       "target": "api::article.article"
     },
-    "events": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::event.event"
-    },
     "backgroundImage": {
       "type": "media",
       "multiple": false,
@@ -47,6 +42,10 @@
       ]
     },
     "isBackgroundHighlight": {
+      "type": "boolean",
+      "default": false
+    },
+    "isLinkFullWidth": {
       "type": "boolean",
       "default": false
     }

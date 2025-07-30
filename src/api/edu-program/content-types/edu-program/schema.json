@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "events",
+  "collectionName": "edu_programs",
   "info": {
-    "singularName": "event",
-    "pluralName": "events",
-    "displayName": "Event"
+    "singularName": "edu-program",
+    "pluralName": "edu-programs",
+    "displayName": "Edu Program"
   },
   "options": {
     "draftAndPublish": true
@@ -24,87 +24,49 @@
       },
       "required": true
     },
-    "shortDescription": {
+    "description": {
       "type": "text",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
+      }
+    },
+    "industryCode": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
       },
       "required": true
     },
-    "slug": {
-      "type": "uid",
+    "studyTime": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "targetField": "name",
       "required": true
     },
-    "description": {
-      "type": "customField",
+    "admissionPeriod": {
+      "type": "string",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "customField": "plugin::ckeditor5.CKEditor",
-      "options": {
-        "preset": "defaultHtml"
-      },
       "required": true
     },
-    "startDate": {
-      "type": "datetime",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "required": true
-    },
-    "endDate": {
-      "type": "datetime",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "required": true
-    },
-    "location": {
+    "facility": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       },
       "required": true
-    },
-    "organizer": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "required": true
-    },
-    "speakers": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "required": true
-    },
-    "tag": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::tag.tag"
     },
     "thumbnail": {
       "type": "media",
@@ -119,6 +81,24 @@
         "images",
         "files"
       ]
+    },
+    "blocks": {
+      "type": "dynamiczone",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "components": [
+        "elements.block-description",
+        "blocks.semester-block"
+      ],
+      "required": true
+    },
+    "insertToPage": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::navigation.navigation"
     }
   }
 }

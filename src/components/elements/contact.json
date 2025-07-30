@@ -15,13 +15,13 @@
     "googleMap": {
       "type": "text"
     },
+    "phoneNumber": {
+      "type": "string"
+    },
     "socialLinks": {
       "type": "component",
       "component": "elements.social-links",
       "repeatable": true
-    },
-    "phoneNumber": {
-      "type": "string"
     }
   },
   "config": {}
