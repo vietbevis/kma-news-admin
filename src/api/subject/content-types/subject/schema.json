@@ -7,7 +7,7 @@
     "displayName": "Subject"
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "pluginOptions": {
     "i18n": {
