@@ -67,6 +67,14 @@
         }
       }
     },
+    "phoneNumber": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
     "web": {
       "type": "string",
       "pluginOptions": {
