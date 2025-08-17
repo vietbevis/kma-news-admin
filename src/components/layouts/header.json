@@ -21,6 +21,11 @@
       "component": "elements.logo",
       "repeatable": false,
       "required": true
+    },
+    "facultyWork": {
+      "type": "component",
+      "component": "elements.link",
+      "repeatable": false
     }
   },
   "config": {}

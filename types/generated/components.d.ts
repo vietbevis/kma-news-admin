@@ -183,6 +183,7 @@ export interface LayoutsHeader extends Struct.ComponentSchema {
     displayName: 'Header';
   };
   attributes: {
+    facultyWork: Schema.Attribute.Component<'elements.link', false>;
     logo: Schema.Attribute.Component<'elements.logo', false> &
       Schema.Attribute.Required;
     navigations: Schema.Attribute.Relation<
